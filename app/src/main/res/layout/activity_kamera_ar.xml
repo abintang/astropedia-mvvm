@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.menuAr.KameraArActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTutorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_50sdp"
+        android:layout_marginEnd="@dimen/_50sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/blacktrans">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_tutorial"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:src="@drawable/stand"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_tutorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                app:layout_constraintTop_toBottomOf="@id/iv_tutorial"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppinsmed"
+                android:textSize="@dimen/_10sdp"
+                android:text="Pastikan kamu berdiri pada tempat yang memiliki pencahayaan yang baik !"
+                android:textAlignment="center"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_selanjutnya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tutorial"
+                app:layout_constraintStart_toStartOf="@id/tv_tutorial"
+                app:layout_constraintEnd_toEndOf="@id/tv_tutorial"
+                android:text="Selanjutnya"
+                android:textSize="@dimen/_9sdp"
+                android:textAllCaps="false"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppinsmed"
+                app:strokeColor="@color/white"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_selesai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tutorial"
+                app:layout_constraintStart_toStartOf="@id/tv_tutorial"
+                app:layout_constraintEnd_toEndOf="@id/tv_tutorial"
+                android:text="Selesai"
+                android:visibility="gone"
+                android:textSize="@dimen/_9sdp"
+                android:textAllCaps="false"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppinsmed"
+                app:strokeColor="@color/white"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+            <TextView
+                android:id="@+id/textLewatiTutorial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp"
+                android:fontFamily="@font/poppinsmed"
+                android:text="lewati tutorial ini"
+                android:clickable="true"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/btn_selanjutnya"
+                app:layout_constraintStart_toStartOf="@id/btn_selanjutnya"
+                app:layout_constraintEnd_toEndOf="@id/btn_selanjutnya"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_gantiModel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_70sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:text="Ubah 3D Objek AR"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/blue_soft"
+        android:fontFamily="@font/poppinsmed"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="visible"
+        android:clickable="true"
+        app:shapeAppearanceOverlay="@style/shapeButton"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:id="@+id/deleteButton"
+        android:src="@drawable/baseline_delete_24"
+        app:tint="@color/white"
+        app:fabCustomSize="@dimen/_40sdp"
+        app:maxImageSize="@dimen/_20sdp"
+        app:layout_constraintStart_toEndOf="@id/btn_gantiModel"
+        app:layout_constraintBottom_toBottomOf="@id/btn_gantiModel"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+        android:clickable="true"
+        app:backgroundTint="@color/red_soft"
+        android:elevation="0dp"
+        app:shapeAppearanceOverlay="@style/shapeIcon" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:id="@+id/backButton"
+        android:src="@drawable/baseline_arrow_back_ios_new_24"
+        app:tint="@color/black"
+        app:fabCustomSize="@dimen/_40sdp"
+        app:maxImageSize="@dimen/_20sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:visibility="visible"
+        android:clickable="true"
+        app:backgroundTint="#e9e6ee"
+        android:elevation="0dp"
+        app:shapeAppearanceOverlay="@style/shapeIcon" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_75sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:cardBackgroundColor="#e9e6ee"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:layout_constraintStart_toEndOf="@id/backButton"
+        app:layout_constraintTop_toTopOf="@id/backButton"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/poppinsmed"
+                android:text="Klik pada titik putih dilayar"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/arFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/bottomsheet_pilih_model"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

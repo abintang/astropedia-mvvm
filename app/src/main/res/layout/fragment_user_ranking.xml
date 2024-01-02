@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color"
+    tools:context=".ui.menuGame.UserRankingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_firstRank"
+            android:layout_width="@dimen/_85sdp"
+            android:layout_height="@dimen/_150sdp"
+            app:cardBackgroundColor="@color/background_color"
+            app:strokeColor="@color/outline_card"
+            app:strokeWidth="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_crown"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="lottie/103071-upgrade-to-premium.json"
+                    app:lottie_loop="true"
+                    app:layout_constraintBottom_toTopOf="@id/cv_centeredFirstRank"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_centeredFirstRank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/background_color"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:strokeWidth="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/iv_firstRank"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:src="@drawable/avatar"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tv_firstRankName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLength="15"
+                            android:textSize="@dimen/_8sdp"
+                            android:text="@string/tx_emptyRank"
+                            app:layout_constraintTop_toBottomOf="@id/iv_firstRank"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textAlignment="center"
+                            android:textColor="@color/white_tx"
+                            android:fontFamily="@font/poppinssemi"/>
+
+                        <TextView
+                            android:id="@+id/tv_firstRankPoint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLength="16"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/tx_emptyPoint"
+                            app:layout_constraintTop_toBottomOf="@id/tv_firstRankName"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textAlignment="center"
+                            android:textColor="@color/white_tx"
+                            android:fontFamily="@font/poppinssemi"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_secondRank"
+            android:layout_width="@dimen/_85sdp"
+            android:layout_height="@dimen/_120sdp"
+            app:cardBackgroundColor="@color/background_color"
+            app:strokeColor="@color/outline_card"
+            app:strokeWidth="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="@id/cv_firstRank"
+            app:layout_constraintEnd_toStartOf="@id/cv_firstRank">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_secondRank"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:src="@drawable/avatar"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_secondRankName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tv_secondRankName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/poppinssemi"
+                    android:maxLength="16"
+                    android:textAlignment="center"
+                    android:textColor="@color/white_tx"
+                    android:textSize="@dimen/_8sdp"
+                    android:text="@string/tx_emptyRank"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_secondRankPoint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_secondRank" />
+
+                <TextView
+                    android:id="@+id/tv_secondRankPoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinssemi"
+                    android:maxLength="16"
+                    android:textAlignment="center"
+                    android:textColor="@color/white_tx"
+                    android:textSize="@dimen/_10sdp"
+                    android:text="@string/tx_emptyPoint"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_secondRankName" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_thirdRank"
+            android:layout_width="@dimen/_85sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:cardBackgroundColor="@color/background_color"
+            app:strokeColor="@color/outline_card"
+            app:strokeWidth="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="@id/cv_firstRank"
+            app:layout_constraintStart_toEndOf="@id/cv_firstRank">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ava_third"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:src="@drawable/avatar"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_thirdRankName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tv_thirdRankName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/poppinssemi"
+                    android:maxLength="16"
+                    android:textAlignment="center"
+                    android:textColor="@color/white_tx"
+                    android:textSize="@dimen/_8sdp"
+                    android:text="@string/tx_emptyRank"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_thirdRankPoint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ava_third" />
+
+                <TextView
+                    android:id="@+id/tv_thirdRankPoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinssemi"
+                    android:maxLength="16"
+                    android:textAlignment="center"
+                    android:textColor="@color/white_tx"
+                    android:textSize="@dimen/_10sdp"
+                    android:text="@string/tx_emptyPoint"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_thirdRankName" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_listRanking"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:nestedScrollingEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintTop_toBottomOf="@id/cv_firstRank"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            app:layout_constraintTop_toBottomOf="@id/rv_listRanking"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

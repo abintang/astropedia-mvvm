@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_black"
+    tools:context=".ui.menuMateri.DeskripsiMateriFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_titleMateri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinssemi"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textColor="@color/white_tx"
+            android:textSize="@dimen/_16sdp"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/tv_miniDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleMateri"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/poppinsmed"
+            android:textSize="@dimen/_9sdp"
+            android:textColor="@color/white_tl"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/outline"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_miniDesc"/>
+
+        <TextView
+            android:id="@+id/tv_titleDescirption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tx_titleDesc"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/white_tx"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/poppinssemi"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="@id/divider"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleDescirption"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/white_tl"
+            android:fontFamily="@font/poppinsreg" />
+
+        <TextView
+            android:id="@+id/title_jarak"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_tx"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/poppinssemi"
+            app:layout_constraintStart_toStartOf="@id/tv_miniDesc"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Jarak Dari Matahari"/>
+
+        <TextView
+            android:id="@+id/title_periode"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_tx"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/poppinssemi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Periode Orbit"/>
+
+        <TextView
+            android:id="@+id/tv_jarak"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_tl"
+            app:layout_constraintTop_toBottomOf="@id/title_jarak"
+            app:layout_constraintStart_toStartOf="@id/title_jarak"
+            android:fontFamily="@font/poppinsreg"
+            android:textSize="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/tv_periode"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_tl"
+            app:layout_constraintTop_toBottomOf="@id/title_jarak"
+            app:layout_constraintStart_toStartOf="@id/title_periode"
+            android:fontFamily="@font/poppinsreg"
+            android:textSize="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/tv_diameter"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_tl"
+            app:layout_constraintTop_toBottomOf="@id/title_diameter"
+            app:layout_constraintStart_toStartOf="@id/title_diameter"
+            android:fontFamily="@font/poppinsreg"
+            android:textSize="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/title_diameter"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_tx"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/poppinssemi"
+            app:layout_constraintStart_toStartOf="@id/tv_miniDesc"
+            app:layout_constraintTop_toBottomOf="@id/tv_jarak"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Diameter"/>
+
+        <TextView
+            android:id="@+id/title_massa"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_tx"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/poppinssemi"
+            app:layout_constraintStart_toStartOf="@id/title_periode"
+            app:layout_constraintTop_toTopOf="@id/title_diameter"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="Massa"/>
+
+        <TextView
+            android:id="@+id/tv_massa"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_tl"
+            app:layout_constraintTop_toBottomOf="@id/title_massa"
+            app:layout_constraintStart_toStartOf="@id/title_massa"
+            android:fontFamily="@font/poppinsreg"
+            android:textSize="@dimen/_10sdp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

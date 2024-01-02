@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Astropedia</string>
+    <string name="tx_keluar">Keluar</string>
+    <string name="tx_loading">Load Data, Tunggu Sebentar…</string>
+    <string name="tx_loading2">Input Data, Tunggu Sebentar…</string>
+
+    <!-- register -->
+    <string name="tx_welcome">Hey! Selamat Datang !</string>
+    <string name="tx_welcomeMessage">Sebelum menggunakan aplikasi ini, kamu diharapkan untuk mendaftar dengan menggunakan akun Google melalui button dibawah ini ya !</string>
+    <string name="tx_btn_register">Lanjutkan Dengan Google</string>
+    <string name="tx_btn_unregister">Gunakan Aplikasi Tanpa Mendaftar</string>
+
+    <!-- main menu -->
+    <string name="tx_mainMenu">Menu Utama</string>
+    <string name="tx_kameraAr">Kamera AR</string>
+    <string name="tx_game">Game</string>
+    <string name="tx_materi">Materi</string>
+    <string name="tx_panduan">Panduan</string>
+    <string name="tx_perkenalanAwal">Perkenalan Awal</string>
+    <string name="tx_titleArtiTataSurya">Apa sih yang dimaksud dengan tata surya itu ?</string>
+    <string name="tx_descPengertianTataSurya">Tata Surya merupakan sekumpulan objek atau benda langit yang terdiri atas sebuah bintang yaitu matahari, delapan planet, dan segala sesuatu yang bergerak di luar angkasa bersama matahari.</string>
+    <string name="tx_descAlasan">Karena penting bagi kita untuk mengenali lingkungan sekitar dari tempat yang saat ini kita tempati yakni Planet Bumi dan agar kita lebih menghargai dan menjaga Planet yang rapuh ini agar tetap aman.</string>
+    <string name="tx_titleAlasan">Kenapa kita perlu mempelajari dan mengetahui objek-objek yang berada di tata surya</string>
+
+    <!-- menu materi -->
+    <string name="tx_titleListMateri">List Materi</string>
+    <string name="tx_kategori">Kategori - %1$s</string>
+    <string name="tx_kategoriTitle">Kategori:</string>
+    <string name="tx_kategoriPlanet">Planet</string>
+    <string name="tx_kategoriBintang">Bintang</string>
+    <string name="tx_kategoriSatelit">Satelit</string>
+    <string name="tx_materiSaatIni">Materi - %1$s</string>
+    <string name="tx_titleMateriDesc">Dibawah ini adalah list materi kategori %1$s. Klik materi dibawah untuk melihat detail materi !</string>
+
+    <string name="tx_titleDesc">Deskripsi Materi</string>
+    <string name="tx_titleFact">Fakta Lainnya</string>
+
+    <string name="tx_titlePageListObjek">List Objek 3D AR</string>
+    <string name="tx_pilihListObjek">Pilih Salah Satu Objek Tata Surya Dibawah</string>
+    <string name="tx_pilihListObjekAR">Pilih dari list objek tata surya dibawah untuk ditampilkan pada kamera AR</string>
+    <string name="tx_faktaLainnya">Fakta Lainnya Terkait %1$s</string>
+
+    <string name="tx_durasiPenyelesaian">Durasi: %1$s Detik</string>
+    <string name="tx_point">%1$s Points</string>
+
+    <string name="tx_emptyRank">Kosong</string>
+    <string name="tx_emptyPoint">-</string>
+
+    <string name="tx_noGame">%1$s/10</string>
+    <string name="tx_timer">%1$s Detik</string>
+    <string name="tx_jawabanSalah">Jawaban mu salah!</string>
+    <string name="tx_jawabanBenar">Jawaban mu benar!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- menu materi -->
+
+
+</resources>
