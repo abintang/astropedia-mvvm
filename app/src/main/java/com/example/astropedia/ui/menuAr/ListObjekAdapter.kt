@@ -39,7 +39,8 @@ class ListObjekAdapter : RecyclerView.Adapter<ListObjekAdapter.ViewHolder>() {
         holder.binding.cvCardObjek.setOnClickListener { v: View? ->
             val intent = Intent(v?.context, KameraArActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            intent.putExtra("idMateri", listObjek[position].nama)
+            intent.putExtra("materi", listObjek[position].nama)
+            intent.putExtra("id", listObjek[position].id)
             v?.context?.startActivity(intent)
         }
     }

@@ -50,6 +50,8 @@
     <string name="tx_timer">%1$s Detik</string>
     <string name="tx_jawabanSalah">Jawaban mu salah!</string>
     <string name="tx_jawabanBenar">Jawaban mu benar!</string>
+
+    <string name="tx_tutorial2">Arahkan kamera handphone ke objek datar seperti lantai dan gerakan handphone ke kiri dan kanan sampai titik-titik putih muncul dilayar !</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- menu materi -->

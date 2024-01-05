@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.menuAr.ArKameraFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/arFragment"
+            android:name="com.google.ar.sceneform.ux.ArFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/btn_gantiModel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_70sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Ubah 3D Objek AR"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/blue_soft"
+            android:fontFamily="@font/poppinsmed"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="visible"
+            android:clickable="true"
+            app:shapeAppearanceOverlay="@style/shapeButton"
+            app:elevation="0dp"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:id="@+id/deleteButton"
+            android:src="@drawable/baseline_delete_24"
+            app:tint="@color/white"
+            app:fabCustomSize="@dimen/_40sdp"
+            app:maxImageSize="@dimen/_20sdp"
+            app:layout_constraintStart_toEndOf="@id/btn_gantiModel"
+            app:layout_constraintBottom_toBottomOf="@id/btn_gantiModel"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="visible"
+            android:clickable="true"
+            app:backgroundTint="@color/red_soft"
+            android:elevation="0dp"
+            app:shapeAppearanceOverlay="@style/shapeIcon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
