@@ -18,8 +18,14 @@ import retrofit2.Response
 class ListMateriViewModel : ViewModel() {
     private val apiService = RetrofitClient.createApiService()
     private var materiLiveData = MutableLiveData<List<MateriModel>>()
+    private var _isShowingSv = MutableLiveData<Boolean>()
+    var isShowingSvLiveData: LiveData<Boolean> = _isShowingSv
+    private var _isShowingLoading = MutableLiveData<Boolean>()
+    var isShowingLoadingLiveData: LiveData<Boolean> = _isShowingLoading
 
-    fun getListMateri(id: Int, scrollView: NestedScrollView, loadingView: MaterialCardView) {
+    fun getListMateri(id: Int) {
+        _isShowingSv.value = false
+        _isShowingLoading.value = true
         apiService.getListMateri(id).enqueue(object : Callback<MateriResponse> {
             override fun onResponse(
                 call: Call<MateriResponse>,
@@ -27,8 +33,8 @@ class ListMateriViewModel : ViewModel() {
             ) {
                 if (response.body() != null) {
                     materiLiveData.value = response.body()!!.data
-                    loadingView.visibility = View.GONE
-                    scrollView.visibility = View.VISIBLE
+                    _isShowingSv.value = true
+                    _isShowingLoading.value = false
                 } else {
                     return
                 }

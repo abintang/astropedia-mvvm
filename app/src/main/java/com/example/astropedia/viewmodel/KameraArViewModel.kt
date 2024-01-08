@@ -6,15 +6,17 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.astropedia.R
+import com.google.android.filament.utils.normal
 import com.google.ar.core.HitResult
 import com.google.ar.core.Plane
 import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.Camera
 import com.google.ar.sceneform.Node
+import com.google.ar.sceneform.Scene
 import com.google.ar.sceneform.math.Vector3
 import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.rendering.Renderable
@@ -24,18 +26,26 @@ import com.google.ar.sceneform.ux.TransformableNode
 import com.gorisse.thomas.sceneform.scene.await
 
 class KameraArViewModel: ViewModel() {
-
     private var _objekValue = MutableLiveData<String?>()
     private var model: Renderable? = null
     private var modelView: ViewRenderable? = null
-    private var _isTutorialShowing = MutableLiveData<Boolean>()
-    var isTutorialShowingLiveData: LiveData<Boolean> = _isTutorialShowing
     private var _isGoToDetail = MutableLiveData<Boolean>()
     var isGoToDetailLiveData: LiveData<Boolean> = _isGoToDetail
 
     suspend fun loadModels(context: Context?) {
         model = ModelRenderable.builder()
             .setSource(context, Uri.parse("models/${_objekValue.value}.glb"))
+            .setIsFilamentGltf(true)
+            .await()
+        modelView = ViewRenderable.builder()
+            .setView(context, R.layout.model)
+            .await()
+    }
+
+    suspend fun updateModels(context: Context?, models: String?) {
+        _objekValue.value = models
+        model = ModelRenderable.builder()
+            .setSource(context, Uri.parse("models/$models.glb"))
             .setIsFilamentGltf(true)
             .await()
         modelView = ViewRenderable.builder()
@@ -69,5 +79,26 @@ class KameraArViewModel: ViewModel() {
                 })
             })
         })
+    }
+
+    private fun removeAllChildren(node: Node) {
+        val children: List<Node> = ArrayList(node.children)
+        for (child in children) {
+            if (child is Camera) {
+                continue
+            }
+            removeAllChildren(child)
+            child.parent = null
+        }
+    }
+    fun removeAllNode(scene: Scene) {
+        val nodes: List<Node> = ArrayList(scene.children)
+        for (node in nodes) {
+            if (node is Camera) {
+                removeAllChildren(node)
+            } else {
+                scene.removeChild(node)
+            }
+        }
     }
 }

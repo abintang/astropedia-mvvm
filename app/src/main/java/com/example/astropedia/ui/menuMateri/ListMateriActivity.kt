@@ -35,35 +35,8 @@ class ListMateriActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        setViewModel(1)
-
-        binding.btnKategoriPlanet.setOnClickListener {
-            setActiveButtonColor(binding.btnKategoriPlanet)
-            setUnactiveButtonColor(binding.btnKategoriBintang)
-            setUnactiveButtonColor(binding.btnKategoriSatelit)
-
-            setViewModel(1)
-        }
-
-        binding.btnKategoriBintang.setOnClickListener {
-            setActiveButtonColor(binding.btnKategoriBintang)
-            setUnactiveButtonColor(binding.btnKategoriPlanet)
-            setUnactiveButtonColor(binding.btnKategoriSatelit)
-
-            setViewModel(2)
-        }
-
-        binding.btnKategoriSatelit.setOnClickListener {
-            setActiveButtonColor(binding.btnKategoriSatelit)
-            setUnactiveButtonColor(binding.btnKategoriPlanet)
-            setUnactiveButtonColor(binding.btnKategoriBintang)
-
-            setViewModel(3)
-        }
-
+        setViewModel()
         setRecyclerview()
-
-
     }
 
     private fun setRecyclerview() {
@@ -74,26 +47,49 @@ class ListMateriActivity : AppCompatActivity() {
         }
     }
 
-    private fun setViewModel(id : Int) {
+    private fun setViewModel() {
         viewModel = ViewModelProvider(this@ListMateriActivity)[ListMateriViewModel::class.java]
-        viewModel.getListMateri(id, binding.svListMateri, binding.cvLoadingSection)
-        viewModel.observeMatriListData().observe(this, Observer { listMateri ->
-            materiAdapter.setListMateri(listMateri)
+        updateListMateri(1)
 
-            listMateri[0].kategori?.icon?.let { Log.e(TAG, it) }
+        viewModel.isShowingSvLiveData.observe(this) {
+            if (it) {
+                binding.svListMateri.visibility = View.VISIBLE
+            } else {
+                binding.svListMateri.visibility = View.INVISIBLE
+            }
+        }
 
-            Glide.with(this).load("https://tata-surya.skripsijoss.my.id/public/icon/" +
-                    listMateri[0].kategori?.icon).into(binding.ivIconKategori)
-            binding.tvDescKategori.text = listMateri[0].kategori?.deskripsi
-            val kategoriSaatIni = listMateri[0].kategori?.nama
-            binding.tvKategori.text = resources.getString(R.string.tx_kategori, kategoriSaatIni)
-            binding.tvTitleMateri.text = resources.getString(R.string.tx_materiSaatIni, kategoriSaatIni)
-            binding.tvTitleMateriDesc.text = resources.getString(R.string.tx_titleMateriDesc, kategoriSaatIni)
-            binding.cvLoadingSection.visibility = View.VISIBLE
-            binding.svListMateri.visibility = View.GONE
+        viewModel.isShowingLoadingLiveData.observe(this) {
+            if (it) {
+                binding.cvLoadingSection.visibility = View.VISIBLE
+            } else {
+                binding.cvLoadingSection.visibility = View.GONE
+            }
+        }
 
-        })
+        binding.btnKategoriPlanet.setOnClickListener {
+            setActiveButtonColor(binding.btnKategoriPlanet)
+            setUnactiveButtonColor(binding.btnKategoriBintang)
+            setUnactiveButtonColor(binding.btnKategoriSatelit)
 
+            updateListMateri(1)
+        }
+
+        binding.btnKategoriBintang.setOnClickListener {
+            setActiveButtonColor(binding.btnKategoriBintang)
+            setUnactiveButtonColor(binding.btnKategoriPlanet)
+            setUnactiveButtonColor(binding.btnKategoriSatelit)
+
+            updateListMateri(2)
+        }
+
+        binding.btnKategoriSatelit.setOnClickListener {
+            setActiveButtonColor(binding.btnKategoriSatelit)
+            setUnactiveButtonColor(binding.btnKategoriPlanet)
+            setUnactiveButtonColor(binding.btnKategoriBintang)
+
+            updateListMateri(3)
+        }
     }
 
     private fun setActiveButtonColor(materialCardView: MaterialCardView) {
@@ -112,6 +108,23 @@ class ListMateriActivity : AppCompatActivity() {
             startActivity(Intent(this, MainMenuNonRegistActivity::class.java)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
         }
+    }
+
+    private fun updateListMateri(id: Int) {
+        viewModel.getListMateri(id)
+        viewModel.observeMatriListData().observe(this, Observer { listMateri ->
+            materiAdapter.setListMateri(listMateri)
+
+            listMateri[0].kategori?.icon?.let { Log.e(TAG, it) }
+
+            Glide.with(this).load("https://tata-surya.skripsijoss.my.id/public/icon/" +
+                    listMateri[0].kategori?.icon).into(binding.ivIconKategori)
+            binding.tvDescKategori.text = listMateri[0].kategori?.deskripsi
+            val kategoriSaatIni = listMateri[0].kategori?.nama
+            binding.tvKategori.text = resources.getString(R.string.tx_kategori, kategoriSaatIni)
+            binding.tvTitleMateri.text = resources.getString(R.string.tx_materiSaatIni, kategoriSaatIni)
+            binding.tvTitleMateriDesc.text = resources.getString(R.string.tx_titleMateriDesc, kategoriSaatIni)
+        })
     }
 
 }

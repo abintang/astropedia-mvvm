@@ -18,13 +18,10 @@ class DetailMateriActivity : AppCompatActivity() {
     private lateinit var viewModel : DetailMateriViewModel
     private val auth = FirebaseAuth.getInstance()
     private val firebaseUser = auth.currentUser
-    private var id = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        id = intent.getIntExtra("idMateri", 1)
 
         setViewModel()
 
@@ -44,6 +41,7 @@ class DetailMateriActivity : AppCompatActivity() {
     }
 
     private fun setViewModel() {
+        val id = intent.getIntExtra("idMateri", 1)
         viewModel = ViewModelProvider(this@DetailMateriActivity)[DetailMateriViewModel::class.java]
         viewModel.getDetailMateri(id)
         viewModel.observeDetailMateriData().observe(this) { detailMateri ->

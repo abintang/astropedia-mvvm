@@ -1,39 +1,52 @@
 package com.example.astropedia.ui.menuAr
 
-import android.content.ContentValues
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.bumptech.glide.Glide
 import com.example.astropedia.R
-import com.example.astropedia.databinding.ActivityListObjekBinding
+import com.example.astropedia.databinding.FragmentBottomSheetUbahObjekBinding
 import com.example.astropedia.ui.listener.OnClickListener
+import com.example.astropedia.ui.listener.OnPassData
+import com.example.astropedia.viewmodel.KameraArViewModel
 import com.example.astropedia.viewmodel.ListMateriViewModel
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.card.MaterialCardView
 
-class ListObjekActivity : AppCompatActivity(), OnClickListener {
-    private val binding by lazy { ActivityListObjekBinding.inflate(layoutInflater) }
-    private lateinit var viewModel : ListMateriViewModel
+class BottomSheetUbahObjekFragment : BottomSheetDialogFragment(), OnClickListener {
+    private val binding by lazy { FragmentBottomSheetUbahObjekBinding.inflate(layoutInflater) }
     private lateinit var listObjekAdapter: ListObjekAdapter
+    private lateinit var viewModel : ListMateriViewModel
+    private lateinit var viewModel2 : KameraArViewModel
+    private var passData: OnPassData? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-
-        val mToolbar = binding.toolbarPilih3d
-        mToolbar.setNavigationOnClickListener {
-            onBackPressed()
-        }
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         setViewModel()
         setRecyclerview()
+
+        binding.closeIv.setOnClickListener {
+            dismiss()
+        }
+
+        return binding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnPassData) {
+            passData = context
+        }
     }
 
     private fun setRecyclerview() {
@@ -46,24 +59,9 @@ class ListObjekActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun setViewModel() {
-        viewModel = ViewModelProvider(this@ListObjekActivity)[ListMateriViewModel::class.java]
+        viewModel = ViewModelProvider(this@BottomSheetUbahObjekFragment)[ListMateriViewModel::class.java]
+        viewModel2 = ViewModelProvider(this@BottomSheetUbahObjekFragment)[KameraArViewModel::class.java]
         updateListObjek(1)
-
-        viewModel.isShowingSvLiveData.observe(this) {
-            if (it) {
-                binding.svListObjek.visibility = View.VISIBLE
-            } else {
-                binding.svListObjek.visibility = View.INVISIBLE
-            }
-        }
-
-        viewModel.isShowingLoadingLiveData.observe(this) {
-            if (it) {
-                binding.cvLoadingSection.visibility = View.VISIBLE
-            } else {
-                binding.cvLoadingSection.visibility = View.GONE
-            }
-        }
 
         binding.btnKategoriPlanet.setOnClickListener {
             setActiveButtonColor(binding.btnKategoriPlanet)
@@ -104,10 +102,8 @@ class ListObjekActivity : AppCompatActivity(), OnClickListener {
     }
 
     override fun onItemObjectClick(nama: String?, id: Int?) {
-        val intent = Intent(applicationContext, KameraArActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.putExtra("materi", nama)
-        intent.putExtra("id", id)
-        startActivity(intent)
+        dismiss()
+        passData?.passDataObjek(nama, id)
     }
+
 }
